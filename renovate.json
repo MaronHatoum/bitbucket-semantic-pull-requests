@@ -26,7 +26,7 @@
     },
     {
       "description": "Customize golang updates commit message",
-      "matchDatasources": ["docker"],
+      "matchDatasources": ["golang-version"],
       "matchPackageNames": ["golang"],
       "commitMessageTopic": "golang"
     },
@@ -55,7 +55,9 @@
       "fileMatch": ["^go.mod$"],
       "matchStrings": ["\\sgo (?<currentValue>.*?)\\s"],
       "depNameTemplate": "golang",
-      "datasourceTemplate": "docker"
+      "datasourceTemplate": "golang-version",
+      "extractVersionTemplate": "^(?<version>\\d+\\.\\d+)",
+      "versioningTemplate": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)$"
     },
     {
       "description": "Update semantic-release plugins",
